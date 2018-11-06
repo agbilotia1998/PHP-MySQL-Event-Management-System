@@ -1,0 +1,2 @@
+CREATE TABLE users(id INT NOT NULL AUTO_INCREMENT, name VARCHAR(30), password VARCHAR(30), email VARCHAR(50), reg_date TIMESTAMP(6), username VARCHAR(30), Verified tinyint(1), PRIMARY KEY(id));
+CREATE TABLE events(Id INT NOT NULL AUTO_INCREMENT, Name VARCHAR(30), DOE VARCHAR(30), DOC VARCHAR(30), Username VARCHAR (30), Description text, Image text, Link text, Going INT DEFAULT 0, Interested INT DEFAULT 0, PRIMARY KEY(Id));
