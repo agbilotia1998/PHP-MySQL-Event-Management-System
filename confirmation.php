@@ -1,10 +1,10 @@
 <?php
     session_start();
 
-    $servername = "localhost";
-    $username = "agbilotia1998";
-    $password = "qazwsxed";
-    $dbname = "myDBPDO";
+    $servername = getenv('SERVER_NAME');
+    $username = getenv('USER_NAME');
+    $password = getenv('USER_PASSWORD');
+    $dbname = getenv('DB_NAME');
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

@@ -16,13 +16,12 @@
 <?php
     session_start();
     if (!isset($_SESSION['user'])) {
-        $servername = "localhost";
-        $username = "agbilotia1998";
-        $password = "qazwsxed";
-        $dbname = "myDBPDO";
+        $servername = getenv('SERVER_NAME');
+        $username = getenv('USER_NAME');
+        $password = getenv('USER_PASSWORD');
+        $dbname = getenv('DB_NAME');
 
         try {
-
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -242,9 +241,10 @@
 
 
     <?php
-        $servername = "localhost";
-        $password = "qazwsxed";
-        $dbname = "myDBPDO";
+        $servername = getenv('SERVER_NAME');
+        $user = getenv('USER_NAME');
+        $password = getenv('USER_PASSWORD');
+        $dbname = getenv('DB_NAME');
 
         if (!isset($_SESSION['user']))
             $username = $_POST["username"];
@@ -254,7 +254,7 @@
 
 
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'agbilotia1998', $password);
+            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $password);
         // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -302,8 +302,6 @@
 
 
         <script>
-
-
             $("#submitform").on("submit", function (event) {
                 $('#Done').val('Creating....');
                 event.preventDefault();
@@ -341,7 +339,6 @@
             });
 
         </script>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </body>
     </html>

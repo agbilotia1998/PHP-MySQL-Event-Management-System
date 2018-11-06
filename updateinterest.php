@@ -1,9 +1,9 @@
 <?php
 
-    $servername = "localhost";
-    $username = "agbilotia1998";
-    $password = "qazwsxed";
-    $dbname = "myDBPDO";
+    $servername = getenv('SERVER_NAME');
+    $username = getenv('USER_NAME');
+    $password = getenv('USER_PASSWORD');
+    $dbname = getenv('DB_NAME');
     $id = $_GET['id'];
 
     try {

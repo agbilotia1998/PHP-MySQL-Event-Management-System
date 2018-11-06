@@ -1,10 +1,10 @@
 <?php
 
     session_start();
-    $servername = "localhost";
-    $username = "agbilotia1998";
-    $password = "qazwsxed";
-    $dbname = "myDBPDO";
+    $servername = getenv('SERVER_NAME');
+    $username = getenv('USER_NAME');
+    $password = getenv('USER_PASSWORD');
+    $dbname = getenv('DB_NAME');
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -54,15 +54,15 @@
                     $mail->Port = 465;
 
     // set your username here
-                    $mail->Username = 'agbilotia1998@gmail.com';
-                    $mail->Password = $_ENV["password"];
+                    $mail->Username = getenv("EMAIL_USER");
+                    $mail->Password = getenv("EMAIL_PASSWORD");
 
     // set your subject
                     $mail->Subject = trim("Email Verifcation");
                     $Subject = trim("Email Verifcation");;
 
     // sending mail from
-                    $mail->SetFrom('agbilotia1998@gmail.com', 'Ayush');
+                    $mail->SetFrom(getenv('EMAIL_USER'), getenv('EMAIL_USERNAME'));
     // sending to
                     $mail->AddAddress($email);
                     $to = $email;
